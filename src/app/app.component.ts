@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ListService } from './list.service';
 import { Item } from './shared/item.model';
 
@@ -8,7 +8,7 @@ import { Item } from './shared/item.model';
   styleUrls: ['./app.component.css'],
   providers: [ListService],
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   list: Item[] = [];
 
   constructor(private listService: ListService) {}
@@ -16,8 +16,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.list = this.listService.list;
   }
-
-  // ngDoCheck() {
-  //   console.log(this.list);
-  // }
+  getChecked(condition: boolean) {
+    return this.list.filter((item) => item.checked === condition);
+  }
 }

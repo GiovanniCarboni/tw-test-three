@@ -1,0 +1,35 @@
+<div class="item" [ngClass]="{ checked: item.checked }">
+  <input
+    id="{{ item.id }}"
+    type="checkbox"
+    [checked]="item.checked"
+    (change)="toggleCheck(item.id)"
+  />
+
+  <div [ngClass]="{ hidden: !isEditing }">
+    <input
+      *ngIf="isEditing"
+      autofocus
+      #newText
+      class="label"
+      type="text"
+      [value]="item.text"
+    />
+    <button class="edit-btn" (click)="confirmEdit()">
+      <img src="assets/checkmark.svg" />
+    </button>
+  </div>
+
+  <ng-template [ngIf]="!isEditing">
+    <label class="label" *ngIf="!isEditing" for="{{ item.id }}">{{
+      item.text
+    }}</label>
+    <button class="edit-btn" (click)="startEdit()">
+      <img src="assets/edit.svg" />
+    </button>
+  </ng-template>
+
+  <button class="delete-btn" (click)="onDelete(item.id)">
+    <img src="assets/trash.svg" />
+  </button>
+</div>

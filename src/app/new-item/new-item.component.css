@@ -6,17 +6,6 @@ form {
   height: 2.2rem;
 }
 
-input {
-  border-radius: var(--radius);
-  outline: none;
-  border: none;
-}
-
-input:active,
-input:focus {
-  outline: 3px solid var(--accent);
-}
-
 .item-input {
   max-width: 28rem;
   flex-grow: 1;

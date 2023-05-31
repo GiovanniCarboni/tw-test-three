@@ -1,8 +1,13 @@
 <h1>Grocery List</h1>
+
 <app-new-item></app-new-item>
-<div class="list" *ngFor="let item of list">
-  <div class="item">
-    <input id="{{ item.id }}" type="checkbox" [checked]="item.checked" />
-    <label for="{{ item.id }}">{{ item.text }}</label>
-  </div>
+
+<div class="list" *ngIf="getChecked(false).length > 0">
+  <app-item *ngFor="let item of getChecked(false)" [item]="item"></app-item>
+</div>
+
+<hr *ngIf="getChecked(true).length > 0 && getChecked(false).length > 0" />
+
+<div class="list" *ngIf="getChecked(true).length > 0">
+  <app-item *ngFor="let item of getChecked(true)" [item]="item"></app-item>
 </div>

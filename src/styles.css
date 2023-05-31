@@ -26,11 +26,27 @@ body {
   color: var(--font-color);
 }
 
+button {
+  cursor: pointer;
+}
+
+input {
+  border-radius: var(--radius);
+  outline: none;
+  border: none;
+}
+input:hover {
+  outline: 3px solid var(--gray-md);
+}
+input:active,
+input:focus {
+  outline: 3px solid var(--accent);
+}
+
 input[type="checkbox"] {
   cursor: pointer;
   appearance: none;
   appearance: none;
-  margin: 0;
   font: inherit;
   background-color: var(--accent);
   height: 1.8rem;
