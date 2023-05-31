@@ -1,1 +1,53 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~normalize.css/normalize.css";
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+:root {
+  /* colors */
+  --background: #1e1e1e;
+  /* --accent: #cc853d; */
+  --accent: #cd0404;
+  --font-color: #d4d3d4;
+  --gray-dark: #2e2e2e;
+  --gray-md: #434343;
+  --gray-light: #515252;
+  /* dimensions */
+  --radius: 4px;
+}
+
+body {
+  font-family: sans-serif;
+  background-color: var(--background);
+  color: var(--font-color);
+}
+
+input[type="checkbox"] {
+  cursor: pointer;
+  appearance: none;
+  appearance: none;
+  margin: 0;
+  font: inherit;
+  background-color: var(--accent);
+  height: 1.8rem;
+  width: 1.8rem;
+  margin-right: 1.2rem;
+  border-radius: var(--radius);
+  display: grid;
+  place-content: center;
+}
+input[type="checkbox"]:hover {
+  outline: 3px solid var(--gray-light);
+}
+input[type="checkbox"]:checked::before {
+  content: "";
+  width: 1.2rem;
+  height: 1rem;
+  border-radius: var(--radius-s);
+  clip-path: polygon(14% 44%, 0 45%, 50% 100%, 100% 16%, 100% 0%, 43% 62%);
+  background-color: #fff;
+}

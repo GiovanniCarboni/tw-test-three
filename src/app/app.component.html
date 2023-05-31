@@ -1,6 +1,8 @@
 <h1>Grocery List</h1>
 <app-new-item></app-new-item>
-<div *ngFor="let item of list">
-  <input id="{{ item.id }}" type="checkbox" [checked]="item.checked" />
-  <label for="{{ item.id }}">{{ item.text }}</label>
+<div class="list" *ngFor="let item of list">
+  <div class="item">
+    <input id="{{ item.id }}" type="checkbox" [checked]="item.checked" />
+    <label for="{{ item.id }}">{{ item.text }}</label>
+  </div>
 </div>

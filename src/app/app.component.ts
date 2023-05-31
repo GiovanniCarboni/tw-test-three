@@ -1,4 +1,4 @@
-import { Component, DoCheck, OnChanges, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ListService } from './list.service';
 import { Item } from './shared/item.model';
 
@@ -8,17 +8,16 @@ import { Item } from './shared/item.model';
   styleUrls: ['./app.component.css'],
   providers: [ListService],
 })
-export class AppComponent implements OnInit, DoCheck {
+export class AppComponent implements OnInit {
   list: Item[] = [];
 
   constructor(private listService: ListService) {}
 
   ngOnInit() {
     this.list = this.listService.list;
-    console.log(this.list);
   }
 
-  ngDoCheck() {
-    console.log(this.list);
-  }
+  // ngDoCheck() {
+  //   console.log(this.list);
+  // }
 }

@@ -1,0 +1,19 @@
+h1 {
+  text-align: center;
+  color: var(--secondary-light);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  padding: 1rem;
+  justify-content: center;
+  max-width: 800px;
+  margin: 1rem auto;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+}
