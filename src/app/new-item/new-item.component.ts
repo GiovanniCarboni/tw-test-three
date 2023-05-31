@@ -1,4 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
+import { ListService } from '../list.service';
 
 @Component({
   selector: 'app-new-item',
@@ -8,9 +9,11 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 export class NewItemComponent {
   @ViewChild('newItem', { static: false }) item: ElementRef;
 
+  constructor(private listService: ListService) {}
+
   addItem(e: Event) {
     e.preventDefault();
-    console.log(this.item.nativeElement.value);
+    this.listService.addItem(this.item.nativeElement.value);
     this.item.nativeElement.value = '';
   }
 }

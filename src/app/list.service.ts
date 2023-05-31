@@ -1,20 +1,22 @@
+import { Item } from './shared/item.model';
+
 export class ListService {
-  list = [];
+  list: Item[] = [];
 
   getList() {
     return [...this.list];
   }
 
-  addItem(item) {
-    // TODO add item
+  addItem(text: string) {
+    this.list.push(new Item(text));
   }
-  removeItem(id) {
+  removeItem(id: string) {
     // TODO remove item
   }
-  editItem() {
+  editItem(id: string) {
     // TODO edit item
   }
-  toggleCheckItem() {
+  toggleCheckItem(id: string) {
     // TODO toggle check item
   }
   checkAll() {
