@@ -1,0 +1,18 @@
+.actions {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+.actions button {
+  font-size: 0.8rem;
+  background-color: var(--gray-dark);
+  padding: 0.4rem 0.6rem;
+  border-radius: var(--radius);
+  color: inherit;
+  border: none;
+}
+.action button:disabled {
+  color: var(--gray-md);
+}

@@ -1,6 +1,7 @@
 <h1>Grocery List</h1>
 
 <app-new-item></app-new-item>
+<app-list-actions></app-list-actions>
 
 <div class="list" *ngIf="getChecked(false).length > 0">
   <app-item *ngFor="let item of getChecked(false)" [item]="item"></app-item>

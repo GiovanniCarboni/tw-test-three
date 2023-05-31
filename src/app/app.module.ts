@@ -5,9 +5,10 @@ import { AppComponent } from './app.component';
 import { NewItemComponent } from './new-item/new-item.component';
 import { ItemComponent } from './item/item.component';
 import { FormsModule } from '@angular/forms';
+import { ListActionsComponent } from './list-actions/list-actions.component';
 
 @NgModule({
-  declarations: [AppComponent, NewItemComponent, ItemComponent],
+  declarations: [AppComponent, NewItemComponent, ItemComponent, ListActionsComponent],
   imports: [BrowserModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],

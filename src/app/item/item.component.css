@@ -21,19 +21,9 @@
 button {
   height: 100%;
   background-color: var(--gray-dark);
-  outline: none;
   border: none;
   color: var(--font-color);
   padding: 0.2rem 0.4rem;
-}
-button:hover {
-  outline: 3px solid var(--gray-md);
-  z-index: 5;
-}
-button:focus,
-button:active {
-  outline: 3px solid var(--accent);
-  z-index: 5;
 }
 
 .edit-btn {

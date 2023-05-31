@@ -23,12 +23,12 @@ export class ListService {
     item.checked = !item.checked;
   }
   checkAll() {
-    // TODO check all
+    this.list.forEach((item) => (item.checked = true));
   }
   uncheckAll() {
-    // TODO uncheck all
+    this.list.forEach((item) => (item.checked = false));
   }
   removeAll() {
-    // TODO remove all
+    this.list.length = 0;
   }
 }
