@@ -1,12 +1,18 @@
+import { Injectable } from '@angular/core';
 import { Item } from './shared/item.model';
 
+@Injectable()
 export class ListService {
-  list: Item[] = [new Item('spaghetti'), new Item('cilantro')];
+  private list: Item[] = [new Item('spaghetti'), new Item('cilantro')];
 
-  getList() {
-    return [...this.list];
+  constructor() {
+    const items = JSON.parse(localStorage.getItem('grocery-items'));
+    if (items) this.list = items;
   }
 
+  getList() {
+    return this.list;
+  }
   addItem(text: string) {
     this.list.unshift(new Item(text));
   }

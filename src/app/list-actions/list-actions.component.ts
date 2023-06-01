@@ -26,12 +26,12 @@ export class ListActionsComponent {
     this.snackBar.onOpen('All items removed');
   }
   isCheckAll() {
-    return !this.listService.list.some((item) => item.checked === false);
+    return !this.listService.getList().some((item) => item.checked === false);
   }
   isUncheckAll() {
-    return !this.listService.list.some((item) => item.checked === true);
+    return !this.listService.getList().some((item) => item.checked === true);
   }
   isRemoveAll() {
-    return this.listService.list.length < 1;
+    return this.listService.getList().length < 1;
   }
 }
