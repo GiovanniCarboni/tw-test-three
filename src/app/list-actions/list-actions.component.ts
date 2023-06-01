@@ -22,8 +22,9 @@ export class ListActionsComponent {
     this.snackBar.onOpen('All items checked');
   }
   onRemoveAll() {
-    this.listService.removeAll();
-    this.snackBar.onOpen('All items removed');
+    this.listService.removeAll().then(() => {
+      this.snackBar.onOpen('All items removed');
+    });
   }
   isCheckAll() {
     return !this.listService.getList().some((item) => item.checked === false);

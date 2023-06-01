@@ -22,15 +22,20 @@ export class ItemComponent {
     this.listService.toggleCheckItem(id);
   }
   onDelete(id: string) {
-    this.listService.removeItem(id);
-    this.snackBar.onOpen('Item removed');
+    this.listService.removeItem(id).then(() => {
+      this.snackBar.onOpen('Item removed');
+    });
   }
   startEdit() {
     // this.newText.nativeElement.focus();
     this.isEditing = true;
   }
   confirmEdit() {
-    this.listService.editItem(this.item.id, this.newText.nativeElement.value);
-    this.isEditing = false;
+    this.listService
+      .editItem(this.item.id, this.newText.nativeElement.value)
+      .then(() => {
+        this.isEditing = false;
+        this.snackBar.onOpen('Item modified');
+      });
   }
 }

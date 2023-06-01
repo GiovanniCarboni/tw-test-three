@@ -1,4 +1,13 @@
 <form (submit)="addItem($event)">
-  <input class="item-input" type="text" #newItem />
-  <input class="add-btn" type="submit" value="+" />
+  <input
+    class="item-input"
+    type="text"
+    placeholder="Type your item here..."
+    [disabled]="status.loading"
+    #newItem
+  />
+  <button class="add-btn" type="submit">
+    <div *ngIf="!status.loading"><img src="assets/add.svg" /></div>
+    <div *ngIf="status.loading" class="spinner"></div>
+  </button>
 </form>
