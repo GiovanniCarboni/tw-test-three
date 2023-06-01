@@ -6,25 +6,25 @@
     (change)="toggleCheck(item.id)"
   />
 
-  <div [ngClass]="{ hidden: !isEditing }">
+  <ng-template [ngIf]="isEditing">
     <input
       *ngIf="isEditing"
-      autofocus
       #newText
       class="label"
       type="text"
       [value]="item.text"
+      (blur)="confirmEdit()"
     />
-    <button class="edit-btn" (click)="confirmEdit()">
+    <button class="edit-btn" (mouseup)="focusInput()">
       <img src="assets/checkmark.svg" />
     </button>
-  </div>
+  </ng-template>
 
   <ng-template [ngIf]="!isEditing">
     <label class="label" *ngIf="!isEditing" for="{{ item.id }}">{{
       item.text
     }}</label>
-    <button class="edit-btn" (click)="startEdit()">
+    <button class="edit-btn" (mousedown)="startEdit()">
       <img src="assets/edit.svg" />
     </button>
   </ng-template>

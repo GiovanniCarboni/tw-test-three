@@ -27,8 +27,10 @@ export class ItemComponent {
     });
   }
   startEdit() {
-    // this.newText.nativeElement.focus();
     this.isEditing = true;
+  }
+  focusInput() {
+    this.newText.nativeElement.focus();
   }
   confirmEdit() {
     this.listService

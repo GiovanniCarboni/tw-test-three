@@ -1,6 +1,7 @@
 <form (submit)="addItem($event)">
   <input
     class="item-input"
+    autofocus
     type="text"
     placeholder="Type your item here..."
     [disabled]="status.loading"

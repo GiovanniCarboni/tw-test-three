@@ -9,7 +9,7 @@ import { SnackBarComponent } from '../snack-bar/snack-bar.component';
   styleUrls: ['./new-item.component.css'],
 })
 export class NewItemComponent {
-  @ViewChild('newItem', { static: false }) item: ElementRef;
+  @ViewChild('newItem', { static: false }) itemInput: ElementRef;
   status: { loading: boolean };
 
   constructor(
@@ -21,8 +21,8 @@ export class NewItemComponent {
 
   addItem(e: Event) {
     e.preventDefault();
-    this.listService.addItem(this.item.nativeElement.value).then(() => {
-      this.item.nativeElement.value = '';
+    this.listService.addItem(this.itemInput.nativeElement.value).then(() => {
+      this.itemInput.nativeElement.value = '';
       this.snackBar.onOpen('Item added');
     });
   }

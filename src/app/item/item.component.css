@@ -15,7 +15,7 @@
   margin-left: -0.6rem;
 }
 .label[type="text"] {
-  z-index: 5;
+  z-index: 10;
 }
 
 button {
@@ -34,14 +34,14 @@ button {
   border-radius: 0 var(--radius) var(--radius) 0;
 }
 
+.edit-btn:active {
+  z-index: 10;
+}
+
 img {
   height: 100%;
 }
 
 .checked label {
   color: var(--gray-light);
-}
-
-.hidden {
-  display: none;
 }
