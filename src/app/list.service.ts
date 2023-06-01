@@ -1,14 +1,30 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { Item } from './shared/item.model';
+import { v4 as uuid } from 'uuid';
 
 @Injectable()
 export class ListService {
-  private list: Item[] = [new Item('spaghetti'), new Item('cilantro')];
+  private list: Item[] = [];
   status = { loading: false };
 
   constructor() {
     const items = JSON.parse(localStorage.getItem('grocery-items'));
     if (items) this.list = items;
+    else
+      this.list = [
+        { id: uuid(), text: 'spaghetti', checked: true },
+        { id: uuid(), text: 'cilantro', checked: true },
+        { id: uuid(), text: 'mozzarella', checked: false },
+        { id: uuid(), text: 'onion', checked: true },
+        { id: uuid(), text: 'eggplants', checked: false },
+        { id: uuid(), text: 'grapefruits', checked: true },
+        { id: uuid(), text: 'butter beans', checked: false },
+        { id: uuid(), text: 'bread', checked: true },
+        { id: uuid(), text: 'parmezan', checked: false },
+        { id: uuid(), text: 'coffee', checked: false },
+        { id: uuid(), text: 'water', checked: false },
+        { id: uuid(), text: 'lemonade', checked: false },
+      ];
   }
 
   getList() {
@@ -19,11 +35,11 @@ export class ListService {
     this.status.loading = true;
     return await new Promise((resolve, reject) => {
       setTimeout(() => {
-        if (text.length === 0 || text.length > 30) {
+        if (text.trim().length === 0 || text.trim().length > 30) {
           this.status.loading = false;
           reject('Invalid text');
         } else {
-          this.list.unshift(new Item(text));
+          this.list.unshift(new Item(text.trim()));
           this.status.loading = false;
           resolve('Item added');
         }
@@ -43,12 +59,12 @@ export class ListService {
     this.status.loading = true;
     return await new Promise((resolve, reject) => {
       setTimeout(() => {
-        if (text.length === 0 || text.length > 30) {
+        if (text.trim().length === 0 || text.trim().length > 30) {
           this.status.loading = false;
           reject('Invalid text');
         } else {
           const item = this.list.find((item) => item.id === id);
-          item.text = text;
+          item.text = text.trim();
           item.checked = false;
           this.status.loading = false;
           resolve('Item modified');

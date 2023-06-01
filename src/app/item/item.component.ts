@@ -21,20 +21,25 @@ export class ItemComponent {
   toggleCheck(id: string) {
     this.listService.toggleCheckItem(id);
   }
+
   onDelete(id: string) {
     this.listService.removeItem(id).then(() => {
       this.snackBar.onOpen('Item removed');
     });
   }
+
   startEdit() {
     this.isEditing = true;
   }
+
   focusInput() {
     this.newText.nativeElement.focus();
   }
+
   confirmOnEnter(e: KeyboardEvent) {
     if (e.key === 'Enter') this.confirmEdit();
   }
+
   confirmEdit() {
     this.listService
       .editItem(this.item.id, this.newText.nativeElement.value)
@@ -42,7 +47,7 @@ export class ItemComponent {
         this.isEditing = false;
         this.snackBar.onOpen(message);
       })
-      .catch((err) => {
+      .catch((err: string) => {
         this.isEditing = false;
         this.snackBar.onOpen(err);
       });
