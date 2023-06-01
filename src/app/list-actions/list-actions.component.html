@@ -1,5 +1,7 @@
 <div class="actions">
-  <button (click)="checkAll()">Check all</button>
-  <button (click)="uncheckAll()">Uncheck all</button>
-  <button (click)="onRemoveAll()">Remove all</button>
+  <button (click)="checkAll()" [disabled]="isCheckAll()">Check all</button>
+  <button (click)="uncheckAll()" [disabled]="isUncheckAll()">
+    Uncheck all
+  </button>
+  <button (click)="onRemoveAll()" [disabled]="isRemoveAll()">Remove all</button>
 </div>
