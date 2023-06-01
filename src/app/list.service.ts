@@ -17,9 +17,18 @@ export class ListService {
 
   async addItem(text: string) {
     this.status.loading = true;
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    this.list.unshift(new Item(text));
-    this.status.loading = false;
+    return await new Promise((resolve, reject) => {
+      setTimeout(() => {
+        if (text.length === 0 || text.length > 30) {
+          this.status.loading = false;
+          reject('Invalid text');
+        } else {
+          this.list.unshift(new Item(text));
+          this.status.loading = false;
+          resolve('Item added');
+        }
+      }, 1000);
+    });
   }
 
   async removeItem(id: string) {
@@ -32,10 +41,20 @@ export class ListService {
 
   async editItem(id: string, text: string) {
     this.status.loading = true;
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    const item = this.list.find((item) => item.id === id);
-    item.text = text;
-    this.status.loading = false;
+    return await new Promise((resolve, reject) => {
+      setTimeout(() => {
+        if (text.length === 0 || text.length > 30) {
+          this.status.loading = false;
+          reject('Invalid text');
+        } else {
+          const item = this.list.find((item) => item.id === id);
+          item.text = text;
+          item.checked = false;
+          this.status.loading = false;
+          resolve('Item modified');
+        }
+      }, 1000);
+    });
   }
 
   toggleCheckItem(id: string) {

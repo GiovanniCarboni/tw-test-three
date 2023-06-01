@@ -32,12 +32,19 @@ export class ItemComponent {
   focusInput() {
     this.newText.nativeElement.focus();
   }
+  confirmOnEnter(e: KeyboardEvent) {
+    if (e.key === 'Enter') this.confirmEdit();
+  }
   confirmEdit() {
     this.listService
       .editItem(this.item.id, this.newText.nativeElement.value)
-      .then(() => {
+      .then((message: string) => {
         this.isEditing = false;
-        this.snackBar.onOpen('Item modified');
+        this.snackBar.onOpen(message);
+      })
+      .catch((err) => {
+        this.isEditing = false;
+        this.snackBar.onOpen(err);
       });
   }
 }

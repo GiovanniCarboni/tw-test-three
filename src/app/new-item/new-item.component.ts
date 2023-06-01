@@ -21,9 +21,14 @@ export class NewItemComponent {
 
   addItem(e: Event) {
     e.preventDefault();
-    this.listService.addItem(this.itemInput.nativeElement.value).then(() => {
-      this.itemInput.nativeElement.value = '';
-      this.snackBar.onOpen('Item added');
-    });
+    this.listService
+      .addItem(this.itemInput.nativeElement.value)
+      .then((message: string) => {
+        this.itemInput.nativeElement.value = '';
+        this.snackBar.onOpen(message);
+      })
+      .catch((err: string) => {
+        this.snackBar.onOpen(err);
+      });
   }
 }

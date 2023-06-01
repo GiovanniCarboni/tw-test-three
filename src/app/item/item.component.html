@@ -14,8 +14,9 @@
       type="text"
       [value]="item.text"
       (blur)="confirmEdit()"
+      (keydown)="confirmOnEnter($event)"
     />
-    <button class="edit-btn" (mouseup)="focusInput()">
+    <button type="submit" class="edit-btn" (mouseup)="focusInput()">
       <img src="assets/checkmark.svg" />
     </button>
   </ng-template>
