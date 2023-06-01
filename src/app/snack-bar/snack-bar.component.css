@@ -1,0 +1,31 @@
+.snack-bar {
+  background-color: var(--gray-dark);
+  border: 3px solid var(--accent);
+  width: fit-content;
+  border-radius: var(--radius);
+  position: fixed !important;
+  bottom: 0;
+  margin: 2rem auto !important;
+  padding: 0;
+}
+
+.snack-bar .container {
+  display: flex;
+  align-items: center;
+}
+
+.snack-bar p {
+  flex-grow: 1;
+  margin: 0;
+}
+
+.snack-bar button {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  color: var(--gray-light);
+  font-size: 1.4rem;
+}
+.snack-bar button:hover {
+  color: var(--accent);
+}

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ListService } from '../list.service';
+import { SnackBarComponent } from '../snack-bar/snack-bar.component';
 
 @Component({
   selector: 'app-list-actions',
@@ -7,16 +8,22 @@ import { ListService } from '../list.service';
   styleUrls: ['./list-actions.component.css'],
 })
 export class ListActionsComponent {
-  constructor(private listService: ListService) {}
+  constructor(
+    private listService: ListService,
+    private snackBar: SnackBarComponent
+  ) {}
 
   uncheckAll() {
     this.listService.uncheckAll();
+    this.snackBar.onOpen('All items unchecked');
   }
   checkAll() {
     this.listService.checkAll();
+    this.snackBar.onOpen('All items checked');
   }
   onRemoveAll() {
     this.listService.removeAll();
+    this.snackBar.onOpen('All items removed');
   }
   isCheckAll() {
     return !this.listService.list.some((item) => item.checked === false);

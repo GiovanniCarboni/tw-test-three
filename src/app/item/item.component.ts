@@ -1,6 +1,7 @@
 import { Component, Input, ViewChild, ElementRef } from '@angular/core';
 import { Item } from '../shared/item.model';
 import { ListService } from '../list.service';
+import { SnackBarComponent } from '../snack-bar/snack-bar.component';
 
 @Component({
   selector: 'app-item',
@@ -12,13 +13,17 @@ export class ItemComponent {
   @Input() item: Item;
   @ViewChild('newText') newText: ElementRef;
 
-  constructor(private listService: ListService) {}
+  constructor(
+    private listService: ListService,
+    private snackBar: SnackBarComponent
+  ) {}
 
   toggleCheck(id: string) {
     this.listService.toggleCheckItem(id);
   }
   onDelete(id: string) {
     this.listService.removeItem(id);
+    this.snackBar.onOpen('Item removed');
   }
   startEdit() {
     // this.newText.nativeElement.focus();
