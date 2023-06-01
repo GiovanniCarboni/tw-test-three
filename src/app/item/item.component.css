@@ -25,6 +25,10 @@ button {
   color: var(--font-color);
   padding: 0.2rem 0.4rem;
 }
+button:hover {
+  box-shadow: inset 3px var(--gray-md);
+  z-index: 5;
+}
 
 .edit-btn {
   border-right: 4px solid var(--background);
@@ -33,9 +37,12 @@ button {
 .delete-btn {
   border-radius: 0 var(--radius) var(--radius) 0;
 }
-
-.edit-btn:active {
-  z-index: 10;
+button:hover {
+  box-shadow: inset 2px 2px var(--gray-md), inset -2px -2px var(--gray-md);
+}
+button:active,
+button:focus {
+  box-shadow: inset 2px 2px var(--accent), inset -2px -2px var(--accent);
 }
 
 img {

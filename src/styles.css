@@ -12,8 +12,8 @@
   /* colors */
   --background: #1e1e1e;
   /* --accent: #cd0404; */
-  --accent: #116d6e;
   /* --accent: #068da9; */
+  --accent: #116d6e;
   --font-color: #d4d3d4;
   --gray-dark: #2e2e2e;
   --gray-md: #434343;
@@ -30,15 +30,6 @@ body {
 
 button {
   cursor: pointer;
-}
-button:hover {
-  outline: 3px solid var(--gray-md);
-  z-index: 5;
-}
-button:focus,
-button:active {
-  outline: 3px solid var(--accent);
-  z-index: 5;
 }
 
 input {
