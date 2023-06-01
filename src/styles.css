@@ -11,8 +11,9 @@
 :root {
   /* colors */
   --background: #1e1e1e;
-  /* --accent: #cc853d; */
-  --accent: #cd0404;
+  /* --accent: #cd0404; */
+  --accent: #116d6e;
+  /* --accent: #068da9; */
   --font-color: #d4d3d4;
   --gray-dark: #2e2e2e;
   --gray-md: #434343;
@@ -65,15 +66,22 @@ input[type="checkbox"] {
   border-radius: var(--radius);
   display: grid;
   place-content: center;
+  padding-bottom: 0.2rem;
 }
 input[type="checkbox"]:hover {
   outline: 3px solid var(--gray-light);
 }
 input[type="checkbox"]:checked::before {
   content: "";
-  width: 1.2rem;
-  height: 1rem;
+  width: 1.8rem;
+  height: 1.4rem;
   border-radius: var(--radius-s);
-  clip-path: polygon(14% 44%, 0 45%, 50% 100%, 100% 16%, 100% 0%, 43% 62%);
-  background-color: #fff;
+  clip-path: polygon(
+    46.46% 70.5%,
+    99.25% 3.25%,
+    49.63% 92.29%,
+    55.88% 100%,
+    12.95% 47.07%
+  );
+  background-color: var(--font-color);
 }
