@@ -1,4 +1,4 @@
-import { EventEmitter, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Item } from './shared/item.model';
 import { v4 as uuid } from 'uuid';
 

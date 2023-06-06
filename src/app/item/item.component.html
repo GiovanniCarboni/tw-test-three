@@ -8,7 +8,6 @@
 
   <ng-template [ngIf]="isEditing">
     <input
-      *ngIf="isEditing"
       #newText
       class="label"
       type="text"
@@ -22,9 +21,7 @@
   </ng-template>
 
   <ng-template [ngIf]="!isEditing">
-    <label class="label" *ngIf="!isEditing" for="{{ item.id }}">{{
-      item.text
-    }}</label>
+    <label class="label" for="{{ item.id }}">{{ item.text }}</label>
     <button class="edit-btn" (mousedown)="startEdit()">
       <img src="assets/edit.svg" />
     </button>

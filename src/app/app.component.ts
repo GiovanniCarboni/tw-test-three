@@ -1,4 +1,4 @@
-import { Component, DoCheck, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, DoCheck } from '@angular/core';
 import { ListService } from './list.service';
 import { Item } from './shared/item.model';
 
